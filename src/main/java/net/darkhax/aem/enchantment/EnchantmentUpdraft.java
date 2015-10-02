@@ -1,10 +1,10 @@
 package net.darkhax.aem.enchantment;
 
-import net.minecraft.enchantment.EnumEnchantmentType;
-import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraftforge.common.config.Configuration;
 
 public class EnchantmentUpdraft extends EnchantmentBase {
     
@@ -15,14 +15,14 @@ public class EnchantmentUpdraft extends EnchantmentBase {
     public static boolean spawnParticles = true;
     
     public EnchantmentUpdraft() {
-    
+        
         super(id, weight, "updraft", maxLevel, EnumEnchantmentType.armor_feet);
         FMLCommonHandler.instance().bus().register(this);
     }
     
     @SubscribeEvent
     public void onPlayerUpdate (TickEvent.PlayerTickEvent event) {
-    
+        
         if (level(event.player.getCurrentArmor(0)) > 0 && event.player.fallDistance > minimumFall) {
             
             event.player.fallDistance = 0;
@@ -34,7 +34,7 @@ public class EnchantmentUpdraft extends EnchantmentBase {
     }
     
     public static void handleConfiguration (Configuration cfg) {
-    
+        
         String name = "updraft";
         
         id = cfg.getInt(name + "Id", "enchantment_" + name, id, 0, 4096, "The enchantment id for the " + name + " enchantment.");

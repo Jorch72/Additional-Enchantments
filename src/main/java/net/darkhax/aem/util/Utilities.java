@@ -22,7 +22,7 @@ public class Utilities {
      *         a player.
      */
     public static MovingObjectPosition rayTrace (EntityPlayer player, double length) {
-    
+        
         Vec3 vecPlayer = Vec3.createVectorHelper(player.posX, player.posY + player.getEyeHeight(), player.posZ);
         Vec3 vecLook = player.getLookVec();
         Vec3 vecMax = vecPlayer.addVector(vecLook.xCoord * length, vecLook.yCoord * length, vecLook.zCoord * length);
@@ -37,10 +37,10 @@ public class Utilities {
      *         not exist previously.
      */
     public static ItemStack prepareStackWithNBT (ItemStack stack) {
-    
+        
         if (!stack.hasTagCompound())
             stack.setTagCompound(new NBTTagCompound());
-        
+            
         return stack;
     }
     
@@ -67,7 +67,7 @@ public class Utilities {
      *            creates a 3x3 breakage.
      */
     public static void attemptAOEBreak (World world, EntityPlayer player, Material[] materials, int layers) {
-    
+        
         ItemStack stack = prepareStackWithNBT(player.getHeldItem());
         MovingObjectPosition objPos = rayTrace(player, 4.5d);
         if (objPos != null && player instanceof EntityPlayerMP && stack != null) {
@@ -87,19 +87,19 @@ public class Utilities {
                 
                 switch (objPos.sideHit) {
                     case 0:
-                        
+                    
                     case 1:
                         rangeY = 0;
                         break;
-                    
-                    case 2:
                         
+                    case 2:
+                    
                     case 3:
                         rangeZ = 0;
                         break;
-                    
-                    case 4:
                         
+                    case 4:
+                    
                     case 5:
                         rangeX = 0;
                         break;
@@ -136,7 +136,7 @@ public class Utilities {
      * @return boolean: Returns are randomly true or false, based on the suplied percentage.
      */
     public boolean tryPercentage (double percent) {
-    
+        
         return Math.random() < percent;
     }
 }

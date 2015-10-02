@@ -3,9 +3,9 @@ package net.darkhax.aem.handler;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.darkhax.aem.AdditionalEnchantments;
 import net.minecraft.enchantment.Enchantment;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 /**
  * When initialized, this class attempts to expand the Enchantment array which holds all of the
@@ -24,7 +24,7 @@ public class EnchantmentListExpansionHandler {
     Field modifiers = null;
     
     public EnchantmentListExpansionHandler() {
-    
+        
         if (ConfigurationHandler.expandEnchantmentId && Enchantment.enchantmentsList.length < 4096) {
             
             AdditionalEnchantments.printDebugMessage("Attempting to expand the Enchantment Array.");

@@ -34,7 +34,7 @@ public class EnchantmentBase extends Enchantment {
      *            in.
      */
     protected EnchantmentBase(int id, int weight, String unlocalizedName, int maxLevel, EnumEnchantmentType type) {
-    
+        
         super(id, weight, type);
         this.name = "aem." + unlocalizedName;
         this.maxLevel = maxLevel;
@@ -43,19 +43,19 @@ public class EnchantmentBase extends Enchantment {
     
     @Override
     public int getMaxLevel () {
-    
+        
         return this.maxLevel;
     }
     
     @Override
     public int getMinEnchantability (int level) {
-    
+        
         return 10 + 20 * (level - 1);
     }
     
     @Override
     public int getMaxEnchantability (int level) {
-    
+        
         return super.getMinEnchantability(level) + 50;
     }
     
@@ -66,7 +66,7 @@ public class EnchantmentBase extends Enchantment {
      * @return boolean: True, if the entity is an instance of EntityLiving.
      */
     public boolean isValidTarget (Entity entity) {
-    
+        
         return (entity instanceof EntityLiving);
     }
     
@@ -78,7 +78,7 @@ public class EnchantmentBase extends Enchantment {
      *         an item which has at least lv 1 of this effect.
      */
     public boolean isValidUser (Entity entity) {
-    
+        
         if (entity instanceof EntityLivingBase) {
             
             ItemStack heldStack = ((EntityLivingBase) entity).getHeldItem();
@@ -98,7 +98,7 @@ public class EnchantmentBase extends Enchantment {
      * @return int: The level of the effect on the weapon.
      */
     public int level (ItemStack stack) {
-    
+        
         return EnchantmentHelper.getEnchantmentLevel(this.effectId, stack);
     }
     

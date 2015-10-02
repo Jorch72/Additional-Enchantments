@@ -2,15 +2,15 @@ package net.darkhax.aem;
 
 import java.util.Arrays;
 
-import net.darkhax.aem.common.ProxyCommon;
-import net.darkhax.aem.handler.ConfigurationHandler;
-import net.darkhax.aem.handler.EnchantmentListExpansionHandler;
-import net.darkhax.aem.util.Constants;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.darkhax.aem.common.ProxyCommon;
+import net.darkhax.aem.handler.ConfigurationHandler;
+import net.darkhax.aem.handler.EnchantmentListExpansionHandler;
+import net.darkhax.aem.util.Constants;
 
 @Mod(modid = Constants.MOD_ID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER)
 public class AdditionalEnchantments {
@@ -25,7 +25,7 @@ public class AdditionalEnchantments {
     
     @EventHandler
     public void preInit (FMLPreInitializationEvent pre) {
-    
+        
         setModInfo(pre.getModMetadata());
         proxy.registerSidedEvents();
         cfg = new ConfigurationHandler(pre.getSuggestedConfigurationFile());
@@ -41,13 +41,13 @@ public class AdditionalEnchantments {
      * @param message
      */
     public static void printDebugMessage (String message) {
-    
+        
         if (ConfigurationHandler.allowDebug)
             Constants.LOGGER.info(message);
     }
     
     void setModInfo (ModMetadata meta) {
-    
+        
         meta.authorList = Arrays.asList("Darkhax");
         meta.logoFile = "";
         meta.credits = "Maintained by Darkhax";
