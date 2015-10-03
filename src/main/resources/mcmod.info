@@ -1,0 +1,16 @@
+[
+{
+  "modid": "AEM",
+  "name": "Additional Enchantments",
+  "description": "More enchantments for your game!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Darkhax"],
+  "credits": "Maintained by Darkhax",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
