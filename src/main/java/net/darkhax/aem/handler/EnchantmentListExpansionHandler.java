@@ -28,6 +28,7 @@ public class EnchantmentListExpansionHandler {
         if (ConfigurationHandler.expandEnchantmentId && Enchantment.enchantmentsList.length < 4096) {
             
             AdditionalEnchantments.printDebugMessage("Attempting to expand the Enchantment Array.");
+            
             try {
                 
                 enchantmentsList = ReflectionHelper.findField(Enchantment.class, "b", "field_77331_b", "enchantmentsList");

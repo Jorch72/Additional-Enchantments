@@ -26,6 +26,7 @@ public class EnchantmentUpdraft extends EnchantmentBase {
         if (level(event.player.getCurrentArmor(0)) > 0 && event.player.fallDistance > minimumFall) {
             
             event.player.fallDistance = 0;
+            
             if (event.player.worldObj.isRemote && spawnParticles) {
                 for (int i = 0; i < 25; i++)
                     event.player.worldObj.spawnParticle("snowshovel", event.player.posX + (rand.nextDouble() - 0.7D) * (double) event.player.width, (event.player.posY - 0.4) + rand.nextDouble() * (double) event.player.height - (double) event.player.yOffset, event.player.posZ + (rand.nextDouble() - 0.7D) * (double) event.player.width, Math.random(), Math.random(), Math.random());
@@ -33,7 +34,8 @@ public class EnchantmentUpdraft extends EnchantmentBase {
         }
     }
     
-    public static void handleConfiguration (Configuration cfg) {
+    @Override
+    public void onConfigSync (Configuration cfg) {
         
         String name = "updraft";
         

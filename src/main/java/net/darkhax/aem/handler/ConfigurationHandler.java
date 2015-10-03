@@ -5,7 +5,8 @@ import java.io.File;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.darkhax.aem.enchantment.EnchantmentUpdraft;
+import net.darkhax.aem.enchantment.EnchantmentBase;
+import net.darkhax.aem.enchantment.Enchantments;
 import net.darkhax.aem.util.Constants;
 import net.minecraftforge.common.config.Configuration;
 
@@ -35,8 +36,9 @@ public class ConfigurationHandler {
         config.getBoolean("allowDebug", "general", true, "If disabled, Additional Enchantments will not be able to print debug lines to the console");
         config.getBoolean("shouldExpand", "general", true, "If enabled, Additional Enchantments will try to expand the Enchantment Array from 256 ids to 4096 ids.");
         
-        EnchantmentUpdraft.handleConfiguration(config);
-        
+        for (EnchantmentBase ench : Enchantments.enchantmentList)
+            ench.onConfigSync(config);
+            
         if (config.hasChanged())
             config.save();
     }

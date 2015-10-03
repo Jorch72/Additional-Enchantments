@@ -2,7 +2,6 @@ package net.darkhax.aem.enchantment;
 
 import java.util.Random;
 
-import net.darkhax.aem.Enchantments;
 import net.darkhax.aem.util.Constants;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
