@@ -1,7 +1,10 @@
 package net.darkhax.aem.enchantment;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.darkhax.aem.handler.ConfigurationHandler;
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 
 public class EnchantmentCloaked extends EnchantmentBase {
@@ -14,6 +17,14 @@ public class EnchantmentCloaked extends EnchantmentBase {
     public EnchantmentCloaked() {
         
         super(id, weight, "cloaked", maxLevel, EnumEnchantmentType.armor);
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+    
+    @SubscribeEvent
+    public void onArmorRendered (RenderPlayerEvent.SetArmorModel event) {
+        
+        if (level(event.stack) > 0)
+            event.result = -2;
     }
     
     public static void syncConfig (Configuration cfg) {
