@@ -2,11 +2,19 @@ package net.darkhax.aem.enchantment;
 
 import java.util.ArrayList;
 
-import net.minecraft.enchantment.Enchantment;
-
 public class Enchantments {
     
     public static ArrayList<EnchantmentBase> enchantmentList = new ArrayList<EnchantmentBase>();
     
-    public static Enchantment updraft = new EnchantmentUpdraft();
+    public static EnchantmentUpdraft updraft;
+    public static EnchantmentCloaked cloaked;
+    
+    public Enchantments() {
+        
+        if (updraft.isEnabled)
+            updraft = new EnchantmentUpdraft();
+            
+        if (cloaked.isEnabled)
+            cloaked = new EnchantmentCloaked();
+    }
 }

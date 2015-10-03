@@ -1,8 +1,5 @@
 package net.darkhax.aem.enchantment;
 
-import java.util.Random;
-
-import net.darkhax.aem.util.Constants;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.EnumEnchantmentType;
@@ -10,12 +7,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.config.Configuration;
 
 public class EnchantmentBase extends Enchantment {
     
+    /**
+     * The highest possible tier for this enchantment that can be obtained through natural
+     * means.
+     */
     private int maxLevel;
-    protected Random rand = Constants.RANDOM;
     
     /**
      * Constructs an enchantment using the basic code. This constructor establishes the
@@ -32,7 +31,7 @@ public class EnchantmentBase extends Enchantment {
      *            use this enchantment, along with the creative tabs this enchantment is placed
      *            in.
      */
-    protected EnchantmentBase(int id, int weight, String unlocalizedName, int maxLevel, EnumEnchantmentType type) {
+    public EnchantmentBase(int id, int weight, String unlocalizedName, int maxLevel, EnumEnchantmentType type) {
         
         super(id, weight, type);
         this.name = "aem." + unlocalizedName;
@@ -99,14 +98,5 @@ public class EnchantmentBase extends Enchantment {
     public int level (ItemStack stack) {
         
         return EnchantmentHelper.getEnchantmentLevel(this.effectId, stack);
-    }
-    
-    /**
-     * This method is called every time the configuration file is being synchronized.
-     * 
-     * @param cfg: Instance of the Configuration for this mod.
-     */
-    public void onConfigSync (Configuration cfg) {
-    
     }
 }

@@ -5,6 +5,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.darkhax.aem.common.ProxyCommon;
+import net.darkhax.aem.enchantment.Enchantments;
 import net.darkhax.aem.handler.ConfigurationHandler;
 import net.darkhax.aem.handler.EnchantmentListExpansionHandler;
 import net.darkhax.aem.util.Constants;
@@ -26,8 +27,7 @@ public class AdditionalEnchantments {
         proxy.registerSidedEvents();
         cfg = new ConfigurationHandler(pre.getSuggestedConfigurationFile());
         new EnchantmentListExpansionHandler();
-        
-        cfg.syncConfigData();
+        new Enchantments();
     }
     
     /**
