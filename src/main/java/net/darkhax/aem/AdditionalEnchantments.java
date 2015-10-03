@@ -10,7 +10,7 @@ import net.darkhax.aem.handler.ConfigurationHandler;
 import net.darkhax.aem.handler.EnchantmentListExpansionHandler;
 import net.darkhax.aem.util.Constants;
 
-@Mod(modid = Constants.MOD_ID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER)
+@Mod(modid = Constants.MOD_ID, name = Constants.MOD_NAME, version = Constants.VERSION_NUMBER, guiFactory = Constants.FACTORY)
 public class AdditionalEnchantments {
     
     @SidedProxy(clientSide = Constants.CLIENT_PROXY_CLASS, serverSide = Constants.SERVER_PROXY_CLASS)
@@ -19,13 +19,11 @@ public class AdditionalEnchantments {
     @Mod.Instance(Constants.MOD_ID)
     public static AdditionalEnchantments instance;
     
-    public static ConfigurationHandler cfg = null;
-    
     @EventHandler
     public void preInit (FMLPreInitializationEvent pre) {
         
         proxy.registerSidedEvents();
-        cfg = new ConfigurationHandler(pre.getSuggestedConfigurationFile());
+        new ConfigurationHandler(pre.getSuggestedConfigurationFile());
         new EnchantmentListExpansionHandler();
         new Enchantments();
     }
