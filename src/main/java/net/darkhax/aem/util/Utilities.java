@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -135,8 +136,20 @@ public class Utilities {
      *            = 0%
      * @return boolean: Returns are randomly true or false, based on the suplied percentage.
      */
-    public boolean tryPercentage (double percent) {
+    public static boolean tryPercentage (double percent) {
         
         return Math.random() < percent;
+    }
+    
+    public static final int POTION_COUNT = Potion.potionTypes.length;
+    
+    public static Potion getRandomPotionEffect () {
+        
+        Potion potion = null;
+        
+        while (potion == null)
+            potion = Potion.potionTypes[Constants.RANDOM.nextInt(POTION_COUNT)];
+            
+        return potion;
     }
 }

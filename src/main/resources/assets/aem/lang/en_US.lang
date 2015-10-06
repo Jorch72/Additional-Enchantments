@@ -3,10 +3,12 @@
 #Enchantment Names
 enchantment.aem.updraft=Updraft
 enchantment.aem.cloaked=Cloaked
+enchantment.aem.discord=Discord
 
 #Enchantment Descriptions
 description.enchantment.aem.updraft=This enchantment will increase the maximum fall distance in which the player can fall. This enchantment is intended for boots.
 description.enchantment.aem.cloaked=This enchantment will make the piece of armor appear invisible when worn. This enchantment can be applied to any piece of armor.
+description.enchantment.aem.discord=This enchantment gives the enchanted weapon a chance to inflict a random potion effect. The chance of this happening increases with the level of the effect. The intensity and duration of the effect will also increase with higher levels.
 
 #Enchantment Level localization. Do not translate!
 enchantment.level.11=XI

@@ -6,6 +6,7 @@ import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.darkhax.aem.enchantment.EnchantmentCloaked;
+import net.darkhax.aem.enchantment.EnchantmentDiscord;
 import net.darkhax.aem.enchantment.EnchantmentUpdraft;
 import net.darkhax.aem.util.Constants;
 import net.minecraftforge.common.config.Configuration;
@@ -38,6 +39,7 @@ public class ConfigurationHandler {
         
         EnchantmentUpdraft.syncConfig(config);
         EnchantmentCloaked.syncConfig(config);
+        EnchantmentDiscord.syncConfig(config);
         
         if (config.hasChanged())
             config.save();

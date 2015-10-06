@@ -8,6 +8,7 @@ public class Enchantments {
     
     public static EnchantmentUpdraft updraft;
     public static EnchantmentCloaked cloaked;
+    public static EnchantmentDiscord discord;
     
     public Enchantments() {
         
@@ -16,5 +17,8 @@ public class Enchantments {
             
         if (cloaked.isEnabled)
             cloaked = new EnchantmentCloaked();
+            
+        if (discord.isEnabled)
+            discord = new EnchantmentDiscord();
     }
 }
